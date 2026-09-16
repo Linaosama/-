@@ -133,6 +133,6 @@ while True:
                 student.remove(target)
                 print("删除学生成功！")
             else:
-                 print(f"已取消删除学生{target['name']}")
+                print(f"已取消删除学生{target['name']}")
     else:
         print("无效输入，请选择 0-5 之间的数字")
