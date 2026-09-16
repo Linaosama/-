@@ -1,3 +1,7 @@
+# 学生成绩管理系统 v1.0
+# 运行方式：python main.py，按菜单输入数字操作
+# 数据结构：student 是列表，每个元素是一个字典
+# 即 {"id": "学号(字符串)", "name": "姓名", "scores": {"科目": 分数}}
 student = []
 
 while True:
@@ -6,7 +10,7 @@ while True:
     print("4.显示全部  5.删除学生  0.退出")
     choice = input("请选择：").strip()
 
-    if choice == "1":
+    if choice == "1":  # 添加学生
         text = input("请输入学号和姓名（用空格或逗号分隔）：")
         parts = text.replace(",", " ").replace("，", " ").split()
         if len(parts) != 2:
@@ -28,7 +32,7 @@ while True:
                 print("添加成功")
 
 
-    elif choice == "4":
+    elif choice == "4":  # 显示全部学生
         if len(student) == 0:
             print("暂无学生")
 
@@ -56,7 +60,7 @@ while True:
                         print(f"{'-':<10}", end="")
                 print()
 
-    elif choice == "2":
+    elif choice == "2":  # 录入成绩
         student_num = input("请输入学生的学号：")
 
         found_student = None
@@ -79,7 +83,7 @@ while True:
                 else:
                     print("成绩无效，请重新输入！")
 
-    elif choice == "3":
+    elif choice == "3":  # 查询学生
         found_id = input("请输入要查询学生的学号:")
 
         target = None
@@ -106,11 +110,11 @@ while True:
 
                 print(f"{'总分':<10}{total_scores:<6}")
 
-    elif choice == "0":
+    elif choice == "0":  # 退出程序
         print("感谢使用，再见！")
         break
 
-    elif choice == "5":
+    elif choice == "5":  # 删除学生
         found_id = input("请输入要删除学生的学号:")
 
         target = None
@@ -126,11 +130,9 @@ while True:
             confirm = input("请输入是/否：")
 
             if confirm == "是":
-               student.remove(target)
-               print("删除学生成功！")
+                student.remove(target)
+                print("删除学生成功！")
             else:
-               print(f"已取消删除学生{target['name']}")
+                 print(f"已取消删除学生{target['name']}")
     else:
         print("无效输入，请选择 0-5 之间的数字")
-
-
